@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  pwn-game:
+    build: ./
+    user: chal
+    volumes:
+      - ./share:/home/chal:ro
+      - ./flag.txt:/flag.txt:ro
+    ports:
+      - 28080:8080/tcp
+    command: /home/chal/chal
+  
+  #pwn-game-build:
+  #  build: ./
+  #  volumes:
+  #    - ./src:/home/src
+  #    - ./share:/home/chal
+  #  command: gcc /home/src/main.c -z noexecstack -fstack-protector-all -pie -z now -pthread -o /home/chal/chal

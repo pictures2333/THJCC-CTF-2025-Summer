@@ -1,0 +1,5 @@
+services:
+  pyjail01:
+    build: .
+    ports:
+      - '19000:10000'
